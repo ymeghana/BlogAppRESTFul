@@ -10,6 +10,7 @@ var express= require ("express"),
     User = require('./models/user'),
     Blog = require('./models/blog')
 require('dotenv').config()
+//console.log(process.env.DBURL)
 //App config 
 mongoose.connect(process.env.DBURL,{ useNewUrlParser: true,useUnifiedTopology: true })
 app.set("view engine","ejs")
