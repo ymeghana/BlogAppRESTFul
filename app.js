@@ -9,9 +9,9 @@ var express= require ("express"),
     passportLocalMongoose = require('passport-local-mongoose'),
     User = require('./models/user'),
     Blog = require('./models/blog')
-
-//App config
-mongoose.connect("mongodb://localhost/restful_blog_app",{ useNewUrlParser: true,useUnifiedTopology: true })
+require('dotenv').config()
+//App config 
+mongoose.connect(process.env.DBURL,{ useNewUrlParser: true,useUnifiedTopology: true })
 app.set("view engine","ejs")
 app.use(express.static("public"))
 app.use(bodyParser.urlencoded({extended:true}))
@@ -182,6 +182,6 @@ function isLoggedIn(req,res,next){
 /*  Blog.remove({},(err,c)=>{
     console.log(c)
 })  */
-app.listen(4001,()=>{
+app.listen(4001 || process.env.PORT,()=>{
     console.log("Connected Blog App")
 })
