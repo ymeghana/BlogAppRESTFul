@@ -182,6 +182,6 @@ function isLoggedIn(req,res,next){
 /*  Blog.remove({},(err,c)=>{
     console.log(c)
 })  */
-app.listen(4001 || process.env.PORT,()=>{
+app.listen(process.env.PORT || 4001 ,()=>{
     console.log("Connected Blog App")
 })
